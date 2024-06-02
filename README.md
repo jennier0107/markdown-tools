@@ -6,9 +6,18 @@ A markdown tool for web , make your writing more convenient .
 
 Not released yet, so please download and install manually .
 
+Clone or download this repo, and choose the inner `markdown-tools` to load in chrome or edge .
+
+
 ### copy page url
 
+with context menu
 ![copy page url](./assets/page_link.png)
+
+with keyboard shortcuts
+
+`Alt + M`
+
 
 ### copy img url
 
@@ -26,7 +35,7 @@ Not released yet, so please download and install manually .
 - copy selected image url to clipboard as `![title](link)` format
 
 ## Roadmap
-- [ ] keyboard shortcuts
+- [x] keyboard shortcuts
 - [ ] User customize shortcut keys
 - [ ] Add notifications after copy
 - [ ] Copy tables from the web page
