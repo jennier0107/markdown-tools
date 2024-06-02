@@ -7,6 +7,21 @@ chrome.runtime.onInstalled.addListener(({reason}) => {
 
 chrome.contextMenus.onClicked.addListener(genericOnClick);
 
+// 快捷键 keyboard shortcuts
+chrome.commands.onCommand.addListener((command) => {
+    if (command = "copy-page-link-as-md-url-format") {
+        chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+            const tab = tabs[0];
+            chrome.scripting.executeScript({
+                target: {tabId: tab.id},
+                func: copyPageLinkAsMdUrlFormat,
+            }).then(r => {
+                console.debug(r)
+            })
+        })
+    }
+});
+
 // 创建相关的菜单
 function createMdToolsContextMenu() {
     // 创建父右键菜单

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "md-tools",
   "description": "a markdown tool 4 web",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "icons": {
     "16": "icon/16.png",
     "32": "icon/32.png",
@@ -16,7 +16,8 @@
     "clipboardWrite",
     "activeTab",
     "scripting",
-    "tabs"
+    "tabs",
+    "commands"
   ],
   "background": {
     "service_worker": "background.js"
@@ -24,5 +25,14 @@
   "action": {
     "default_title": "A markdown tools 4U",
     "default_popup": "popup.html"
+  },
+  "commands": {
+    "copy-page-link-as-md-url-format": {
+      "suggested_key": {
+        "default": "Alt+M",
+        "mac": "Alt+M"
+      },
+      "description": "Copy page link without query string as markdown url format"
+    }
   }
 }
