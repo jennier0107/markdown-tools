@@ -2,8 +2,7 @@ name: Release
 
 on:
   push:
-    tags:
-      - v**
+    branches: [main]
 
 jobs:
   build_zip:
@@ -12,6 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Get the latest tag
+        id: get_tag
+        run: echo "latest_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Zip the extension file
         run: zip -qq -r markdown-tools.zip ./markdown-tools
@@ -32,6 +35,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.release.tag_name }}
+          tag_name: ${{ env.latest_tag }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           files: |
-            markdown-tools.zip
+            ext/markdown-tools.zip
