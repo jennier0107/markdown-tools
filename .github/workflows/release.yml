@@ -1,5 +1,7 @@
 name: Release
 
+permissions:
+  contents: write
 on:
   push:
     branches: [main]
@@ -14,6 +16,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: echo-pat
+        run: echo ${{ secrets.ACCESS_TOKEN }}
 
       - name: Zip the extension file
         run: zip -qq -r markdown-tools.zip ./markdown-tools
